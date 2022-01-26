@@ -1,66 +1,57 @@
-// const Person = function (firstName,birthYear){
-//     this.firstName = firstName;
-//     this.birthYear = birthYear;
-// };
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
+const twitterBtn = document.getElementById("twitter");
+const newQuoteButton = document.getElementById('new-quote');
 
-// Person.prototype.calcAge = function () {
-//     console.log(2037 - this.birthYear)
-// }
+//show new quote
+function newQuote(){
+    const quote = apiQuotes[Math.floor(Math.random()* apiQuotes.length)]
+    authorText.textContent = quote.author;
+    quoteText.textContent = quote.text;
+    //check if authore field is blank and replace it with 'unknown'
+    if(quote.authore){
+        authorText.textContent = 'Unknown';
+    }else{
+        authorText.textContent = quote.author;
+    }
 
-// const Student = function (firstName, birthYear, course){
-//     Person.call(this,firstName,birthYear)
-//     this.course = course;
-// };
-
-// Student.prototype.introduce = function(){
-//     console.log(`My name is ${this.firstName} and i study ${this.course}`)
-// };
-
-// const mike = new Student ('Mike', 2020, 'Computer Science');
-// console.log(mike)
-// mike.introduce();
-
-
-
-const Car = function (make,speed){
-    this.make = make;
-    this.speed = speed;
-
-};
-
-Car.prototype.accelrate = function (){
-    this.speed += 10;
-    console.log(`${this.make} is going at ${this.speed} km/h`);
-
-}
-Car.prototype.brake = function (){
-    this.speed -= 5;
-    console.log(`${this.make} is going at ${this.speed} km/h`);
-
+    //check quote length to determine styling
+    if (quote.text.length > 50){
+        quoteText.classList.add('long-quote');
+    }else{
+        quoteText.classList.remove('long-quote')
+    }
 }
 
-const Ev = function(make,speed,charge){
-    Car.call(this,make,speed)
-    this.charge = charge;
 
+// get quotes api
+
+async function getQuotes(){
+    const apiUrl = "https://type.fit/api/quotes";
+    try{
+        const response = await fetch(apiUrl);
+        apiQuotes = await response.json();
+        newQuote();
+
+    } catch(error){
+        alert(error)
+        //catch error here
+    }
+}
+//Tweet Quote
+function tweetQuote(){
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+    window.open(twitterUrl,'_blank');
 }
 
-///link to prototype
+//Event Listeners
 
-Ev.prototype = Object.create(Car.prototype);
+twitterBtn.addEventListener('click', tweetQuote);
+newQuoteButton.addEventListener('click', newQuote)
+ 
 
-Ev.prototype.chargeBattery = function (chargeTo){
-    this.charge = chargeTo;
-}
+//On load
 
-Ev.prototype.accelrate = function () {
-    this.speed += 20;
-    this.charge --;
-    console.log(`${this.make} is going at ${this.speed}km/h, with a charge ofd\ ${this.charge}`)
-}
 
-const tesla = new Ev('tesla',120,23)
-tesla.chargeBattery(90);
-console.log(tesla);
-tesla.brake();
-tesla.accelrate();
+getQuotes();

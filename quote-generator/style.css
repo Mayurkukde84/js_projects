@@ -1,87 +1,96 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@300&display=swap");
 
-html{
-    box-sizing: border-box;
+html {
+  box-sizing: border-box;
 }
-body{
-    margin: 0%;
-    min-height: 100vh;
-    background-color: #e6e2ec;
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2306030c' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+body {
+  margin: 0%;
+  min-height: 100vh;
+  background: #ee9ca7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffdde1,
+    #ee9ca7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffdde1,
+    #ee9ca7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-.quote-container{
-    width: auto;
-    max-width: 900px;
-    padding: 20px 30px;
-    border-radius: 10px ;
-    background-color: rgba(255,255,255,0.4);
-    box-shadow: 0 20px 20px 20px(0,0,0,0.5);
-}
-
-.quote-text{
-    font-size: 2.75rem;
-}
-.long-quote{
-    font-size: 2rem;
+  color: rgb(21, 21, 21);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.fa-quote-left{
-    font-size: 4rem ;
+.quote-container {
+  width: auto;
+  max-width: 900px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 20px 20px 20px (0, 0, 0, 0.5);
 }
 
-.quote-author{
-    margin-top: 15px;
-    font-size: 2rem;
-    font-weight: 400;
-    font-style: italic;
+.quote-text {
+  font-size: 2.75rem;
+}
+.long-quote {
+  font-size: 2rem;
 }
 
-.button-container{
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
+.fa-quote-left {
+  font-size: 4rem;
+}
 
+.quote-author {
+  margin-top: 15px;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.button-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
-    cursor: pointer;
-    font-size: 1.2rem;
-    height: 2.5rem;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    background: black;
-    outline: none;
-    padding: 0.5rem 1.8rem;
-    box-shadow: 0 0.3rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background: black;
+  outline: none;
+  padding: 0.5rem 1.8rem;
+  box-shadow: 0 0.3rem;
 }
-button:hover{
-    filter: brightness(110%);
+button:hover {
+  filter: brightness(110%);
 }
-button:active{
-    transform: translate(0,0.3rem);
-    box-shadow: 0 0.1rem rgba(255,255,255,0.65);
+button:active {
+  transform: translate(0, 0.3rem);
+  box-shadow: 0 0.1rem rgba(255, 255, 255, 0.65);
 }
-.twitter-button:hover{
-    color: #38a1f3;
+.twitter-button:hover {
+  color: #38a1f3;
 }
-.fa-twitter{
-    font-size: 1.5rem;
+.fa-twitter {
+  font-size: 1.5rem;
 }
 /* media querry */
-@media screen and (max-width:1000px){
-    .quote-container{
-        margin: auto 10px;
-    }
-    .quote-text{
-        font-size: 2.5rem;
-    }
+@media screen and (max-width: 1000px) {
+  .quote-container {
+    margin: auto 10px;
+  }
+  .quote-text {
+    font-size: 2.5rem;
+  }
 }

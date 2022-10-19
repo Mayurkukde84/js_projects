@@ -1,7 +1,7 @@
 # This are small project based on js html css
 
 
-# Infinite Scroller
+# 1. Infinite Scroller
 
 In this project you can scoll infinite on your browser..
 Here we use uplash photo gallery api..
